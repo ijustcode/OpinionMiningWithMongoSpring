@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestfulController {
 
     @Autowired
-	private ProductRepositoryCustom productRepositoryCustom;
+    private ProductRepositoryCustom productRepositoryCustom;
 
     @Autowired
     MongoOperations mongoOperations;
@@ -27,7 +27,6 @@ public class RestfulController {
     public Product getProduct(@PathVariable String product_id) {
 
         return productRepositoryCustom.getProduct(product_id);
-
 
 
 //        Product product = (Product) productRepository.findByProduct_id(product_id);
@@ -50,10 +49,13 @@ public class RestfulController {
 //        String textOutput = jsonObject.toString();
 //
 //        return jsonObject;
+    }
 
 
+    @RequestMapping(value = "api/v1/productReviewsTest/{category}", method = RequestMethod.GET)
+    public Product getCategoryReviewCount(@PathVariable String category) throws Exception {
 
-
+        return productRepositoryCustom.getCategoryReviewCount(category);
     }
 
 }

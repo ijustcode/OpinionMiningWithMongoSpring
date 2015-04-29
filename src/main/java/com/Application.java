@@ -13,9 +13,9 @@ public class Application {
 //	@Autowired
 //	private CustomerRepository repository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
 //	@Override
 //	public void run(String... args) throws Exception {

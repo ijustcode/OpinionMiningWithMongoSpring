@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends MongoRepository<Product, String>{
+public interface ProductRepository extends MongoRepository<Product, String> {
 
 //    @Autowired
 //    MongoTemplate mongoTemplate;

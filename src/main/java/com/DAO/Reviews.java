@@ -9,7 +9,7 @@ public class Reviews {
 
     private DateFormat iso8601DateFormat;
     private int score;
-    private  String user_id;
+    private String user_id;
     private double sentiment;
     private String text;
     private int voted_total;

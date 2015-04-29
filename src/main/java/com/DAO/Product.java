@@ -12,12 +12,13 @@ public class Product {
 
     @Id
     private String product_id;
-    private  String brand;
+    private String brand;
     private String category;
     private String price;
     private List<Object> reviews;
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(String product_id, String brand, String category, String price, List<Object> reviews) {
         this.product_id = product_id;
