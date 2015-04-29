@@ -3,10 +3,7 @@ package com;
 
 import com.Custom.ProductRepositoryCustom;
 import com.DAO.Product;
-import com.DAO.Reviews;
-import com.Repositories.ProductRepository;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,5 +54,11 @@ public class RestfulController {
 
         return productRepositoryCustom.getCategoryReviewCount(category);
     }
+
+    @RequestMapping(value = "api/v1/getTotalCountPerCategory", method = RequestMethod.GET)
+    public Iterable<DBObject> getTotalCountPerCategory() {
+        return productRepositoryCustom.getTotalCountPerCategory();
+    }
+
 
 }

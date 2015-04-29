@@ -15,12 +15,12 @@ public class Product {
     private String brand;
     private String category;
     private String price;
-    private List<Object> reviews;
+    private List<Reviews> reviews;
 
     public Product() {
     }
 
-    public Product(String product_id, String brand, String category, String price, List<Object> reviews) {
+    public Product(String product_id, String brand, String category, String price, List<Reviews> reviews) {
         this.product_id = product_id;
         this.brand = brand;
         this.category = category;

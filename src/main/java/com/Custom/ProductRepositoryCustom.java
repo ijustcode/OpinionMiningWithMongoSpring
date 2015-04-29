@@ -1,6 +1,7 @@
 package com.Custom;
 
 import com.DAO.Product;
+import com.mongodb.DBObject;
 import org.springframework.stereotype.Repository;
 
 
@@ -12,4 +13,7 @@ public interface ProductRepositoryCustom {
     Product getProduct(String product_id);
 
     Product getCategoryReviewCount(String category) throws Exception;
+
+    Iterable<DBObject> getTotalCountPerCategory();
+
 }

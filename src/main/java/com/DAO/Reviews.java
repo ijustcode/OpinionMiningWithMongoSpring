@@ -1,13 +1,14 @@
 package com.DAO;
 
+import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.text.DateFormat;
-
+@Getter
+@Setter
 public class Reviews {
 
-    private DateFormat iso8601DateFormat;
+    private ISO8601Utils iso8601DateFormat;
     private int score;
     private String user_id;
     private double sentiment;
@@ -17,4 +18,8 @@ public class Reviews {
     private String user_gender;
     private String user_name;
     private String summary;
+
+    public Reviews() {
+
+    }
 }

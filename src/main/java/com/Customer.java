@@ -1,8 +1,5 @@
 package com;
 
-import org.springframework.data.annotation.Id;
-
-
 //public class Customer {
 //
 //    @Id

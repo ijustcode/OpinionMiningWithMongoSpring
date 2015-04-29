@@ -68,4 +68,27 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
         return productQuery;
 
     }
+
+    @Override
+    public Iterable<DBObject> getTotalCountPerCategory() {
+
+        List<DBObject> list = new ArrayList<>();
+
+        DBObject unwindReviews = new BasicDBObject("$unwind", "$reviews");
+        DBObject group = new BasicDBObject("$group", new BasicDBObject("_id", new BasicDBObject("category", "$category")
+                .append("gender", "$reviews.user_gender"))
+                .append("count", new BasicDBObject("$sum", Integer.parseInt("1"))));
+        list.add(unwindReviews);
+        list.add(group);
+
+        AggregationOutput results = mongoOperations.getCollection("products").aggregate(list);
+        Iterable<DBObject> dbObjects = results.results();
+
+//        JSONArray jsonObject = (JSONArray) dbObjects;
+        for (DBObject dbObject : dbObjects) {
+//            dbObject.
+        }
+
+        return dbObjects;
+    }
 }
