@@ -60,5 +60,10 @@ public class RestfulController {
         return productRepositoryCustom.getTotalCountPerCategory();
     }
 
+    @RequestMapping(value = "api/v1/getTop10HighestSentimentBrands", method = RequestMethod.GET)
+    public Iterable<DBObject> getTop10HighestSentimentBrands() {
+        return productRepositoryCustom.getTop10HighestSentimentBrands();
+    }
+
 
 }

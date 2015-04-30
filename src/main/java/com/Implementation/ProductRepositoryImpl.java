@@ -84,10 +84,27 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
         AggregationOutput results = mongoOperations.getCollection("products").aggregate(list);
         Iterable<DBObject> dbObjects = results.results();
 
-//        JSONArray jsonObject = (JSONArray) dbObjects;
-        for (DBObject dbObject : dbObjects) {
-//            dbObject.
-        }
+        return dbObjects;
+    }
+
+    @Override
+    public Iterable<DBObject> getTop10HighestSentimentBrands() {
+
+        List<DBObject> list = new ArrayList<>();
+
+        DBObject unwindReviews = new BasicDBObject("$unwind", "$reviews");
+        DBObject group = new BasicDBObject("$group", new BasicDBObject("_id", new BasicDBObject("brand", "$brand"))
+                .append("avg_sentiment", new BasicDBObject("$avg", "$reviews.sentiment")));
+        DBObject sort = new BasicDBObject("$sort", new BasicDBObject("avg_sentiment", -1));
+        DBObject limit = new BasicDBObject("$limit", 15);
+
+        list.add(unwindReviews);
+        list.add(group);
+        list.add(sort);
+        list.add(limit);
+
+        AggregationOutput results = mongoOperations.getCollection("products").aggregate(list);
+        Iterable<DBObject> dbObjects = results.results();
 
         return dbObjects;
     }

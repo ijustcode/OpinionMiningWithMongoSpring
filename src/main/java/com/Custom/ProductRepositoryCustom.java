@@ -16,4 +16,5 @@ public interface ProductRepositoryCustom {
 
     Iterable<DBObject> getTotalCountPerCategory();
 
+    Iterable<DBObject> getTop10HighestSentimentBrands();
 }
